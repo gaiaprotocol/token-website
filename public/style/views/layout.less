@@ -15,10 +15,10 @@
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter : blur(24px);
 
-    display    : flex;
-    align-items: center;
-    gap        : 16px;
-    padding    : 16px 24px;
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    padding        : 16px 24px;
 
     >.persona-logo {
       display    : flex;
@@ -27,7 +27,11 @@
     }
   }
 
-  >main {}
+  >main {
+    max-width: 1128px;
+    padding  : 0 20px;
+    margin   : 0 auto;
+  }
 
   >footer {
     display  : flex;

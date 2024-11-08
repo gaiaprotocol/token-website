@@ -891,13 +891,18 @@ li.chat-message-list-item > main {
   backdrop-filter: blur(24px);
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
   padding: 16px 24px;
 }
 .layout > header > .persona-logo {
   display: flex;
   align-items: center;
   height: 40px;
+}
+.layout > main {
+  max-width: 1128px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 .layout > footer {
   display: flex;
@@ -934,13 +939,35 @@ li.chat-message-list-item > main {
   margin-top: 22px;
 }
 .intro-view > header > .buttons {
-  display: flex;
-  justify-content: center;
   margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
 }
 .intro-view > .coin-display {
   margin: 80px auto 0;
   display: flex;
   justify-content: center;
+}
+.faucet-view {
+  margin-top: 86px;
+  max-width: 1128px;
+}
+@container (width <= 520px) {
+  .faucet-view {
+    margin-top: 54px;
+  }
+}
+.faucet-view > h1 {
+  font-size: 36px;
+  margin-bottom: 42px;
+}
+@container (width <= 520px) {
+  .faucet-view > h1 {
+    font-size: 27px;
+    margin-bottom: 27px;
+  }
 }
 

@@ -5,7 +5,12 @@ export function header() {
   return el(
     "header",
     getGaiaProtocolLogo(),
-    el(".nav", el("a.faucet", "Faucet", { href: "/faucet" })),
+    el(
+      ".buttons",
+      el("a.button.outlined.faucet", "Faucet", {
+        href: "/faucet",
+      }),
+    ),
   );
 }
 
