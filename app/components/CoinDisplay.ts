@@ -21,9 +21,15 @@ export default class CoinDisplay extends DomNode<HTMLCanvasElement> {
   constructor() {
     super("canvas");
 
+    let size = "320px";
+
+    if (window.innerWidth < 768) {
+      size = "200px";
+    }
+
     this.style({
-      width: "320px",
-      height: "320px",
+      width: size,
+      height: size,
       outline: "none",
       WebkitTapHighlightColor: "transparent",
     });
