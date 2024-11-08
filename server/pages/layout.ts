@@ -14,7 +14,11 @@ export function footer() {
     "footer",
     el(
       ".credit",
-      "Created by Gaia Protocol",
+      "Created by ",
+      el("a", "Gaia Protocol", {
+        href: "https://gaiaprotocol.com",
+        target: "_blank",
+      }),
     ),
     el(
       ".social",
