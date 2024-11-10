@@ -1,9 +1,10 @@
 import { QueriedDomNode, View } from "@common-module/app";
+import { Alert, Button, ButtonType } from "@common-module/app-components";
 import { introView } from "../../pages/introView.js";
 import AppConfig from "../AppConfig.js";
 import CoinDisplay from "../components/CoinDisplay.js";
+import CalendarIcon from "../icons/CalendarIcon.js";
 import Layout from "./Layout.js";
-import { Button, ButtonType } from "@common-module/app-components";
 
 export default class IntroView extends View {
   private coinDisplay: CoinDisplay;
@@ -22,6 +23,14 @@ export default class IntroView extends View {
         type: ButtonType.Outlined,
         //title: "Add $GAIA to Wallet",
         title: "Launching in Q1 2025",
+        onClick: () => {
+          new Alert({
+            icon: new CalendarIcon(),
+            title: "$GAIA Launch Schedule",
+            message:
+              "$GAIA will be launched in Q1 2025.\nStay tuned for more updates!",
+          });
+        },
       }),
     );
   }
