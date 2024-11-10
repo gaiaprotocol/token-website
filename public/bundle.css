@@ -617,6 +617,19 @@ dialog.modal.alert > header > h1 {
   align-items: center;
   gap: 12px;
 }
+.accordion-item {
+  border-bottom: 1px solid var(--line-color);
+}
+.accordion-item > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.accordion-item > .content {
+  padding-bottom: 15px;
+}
 /* Social Components */
 .author-name-display {
   font-weight: bold;

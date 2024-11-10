@@ -20,7 +20,8 @@ export default class IntroView extends View {
     new QueriedDomNode(".intro-view header .buttons").append(
       new Button({
         type: ButtonType.Outlined,
-        title: "Add $GAIA to Wallet",
+        //title: "Add $GAIA to Wallet",
+        title: "Launching in Q1 2025",
       }),
     );
   }
