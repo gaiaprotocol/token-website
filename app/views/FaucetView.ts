@@ -119,7 +119,10 @@ export default class FaucetView extends View {
         GaiaProtocolTokenTestnetContract.balanceOf(
           WalletConnectionManager.connectedAddress,
         ),
-        WalletConnectionManager.getBalance(),
+        WalletConnectionManager.getBalance(
+          "base-sepolia",
+          WalletConnectionManager.connectedAddress,
+        ),
       ]);
 
       this.balanceDisplay.clear().append(
