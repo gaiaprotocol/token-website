@@ -623,6 +623,19 @@ dialog.modal.alert > header > h1 {
   align-items: center;
   gap: 12px;
 }
+.accordion-item {
+  border-bottom: 1px solid var(--line-color);
+}
+.accordion-item > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.accordion-item > .content {
+  padding-bottom: 15px;
+}
 /* Social Components */
 .author-name-display {
   font-weight: bold;
@@ -914,6 +927,14 @@ li.chat-message-list-item > main {
   flex-grow: 1;
   color: #b4b4b4;
   font-size: 14px;
+}
+.layout > footer > .credit > a {
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline-color);
+  transition: text-decoration-color 0.25s ease;
+}
+.layout > footer > .credit > a:hover {
+  text-decoration-color: currentColor;
 }
 .intro-view {
   margin-top: 86px;
