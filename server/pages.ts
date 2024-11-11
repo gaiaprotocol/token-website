@@ -11,7 +11,7 @@ UniversalEl.impl = el;
 html.impl = (htmlContent) => htmlContent;
 
 const GTAG_ID = "G-SD4BMR4ZKT";
-const VERSION = "0.0.14";
+const VERSION = "0.0.15";
 
 export function pages(
   path: string,
