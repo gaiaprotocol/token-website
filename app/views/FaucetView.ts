@@ -141,15 +141,19 @@ export default class FaucetView extends View {
   private checkRequestable() {
     const amountString = this.amountInput.value.trim();
     if (amountString === "") {
-      this.requestButton.disable();
+      this.requestButton.disable().text = "Request $GAIA";
     } else {
       const amount = parseEther(amountString);
       if (
         amount <= parseEther("10000") && WalletConnectionManager.isConnected
       ) {
-        this.requestButton.enable();
+        this.requestButton.enable().text = `Request ${
+          StringUtils.formatNumberWithCommas(
+            formatEther(amount),
+          )
+        } $GAIA`;
       } else {
-        this.requestButton.disable();
+        this.requestButton.disable().text = "Request $GAIA";
       }
     }
   }
