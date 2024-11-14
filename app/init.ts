@@ -1,6 +1,4 @@
 import { Router, SPAInitializer } from "@common-module/app";
-import { AppCompConfig } from "@common-module/app-components";
-import { MaterialLoadingSpinner } from "@common-module/material-loading-spinner";
 import { UniversalWalletConnector } from "@common-module/wallet";
 import AppConfig, { IAppConfig } from "./AppConfig.js";
 import FaucetView from "./views/FaucetView.js";
@@ -10,7 +8,6 @@ import TestView from "./views/TestView.js";
 
 export default async function init(config: IAppConfig) {
   AppConfig.init(config);
-  AppCompConfig.LoadingSpinner = MaterialLoadingSpinner;
   SPAInitializer.init();
 
   UniversalWalletConnector.init({

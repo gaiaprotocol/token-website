@@ -1,3 +1,5 @@
+import { GaiaUIPreset } from "@gaiaprotocol/ui-preset";
+
 export interface IAppConfig {
   isDevMode: boolean;
 }
@@ -7,6 +9,7 @@ class AppConfig implements IAppConfig {
 
   public init(config: IAppConfig) {
     Object.assign(this, config);
+    GaiaUIPreset.init();
   }
 }
 

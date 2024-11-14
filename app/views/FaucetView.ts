@@ -1,6 +1,6 @@
 import { DomNode, el, View } from "@common-module/app";
 import {
-  Alert,
+  AlertDialog,
   AppCompConfig,
   Button,
   ButtonType,
@@ -75,7 +75,7 @@ export default class FaucetView extends View {
 
               await GaiaProtocolTokenTestnetContract.mint(signer, amount);
 
-              new Alert({
+              new AlertDialog({
                 title: "Success",
                 message: [
                   "Success! ",

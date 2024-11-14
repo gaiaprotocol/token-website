@@ -1,9 +1,9 @@
 import { QueriedDomNode, View } from "@common-module/app";
-import { Alert, Button, ButtonType } from "@common-module/app-components";
+import { AlertDialog, Button, ButtonType } from "@common-module/app-components";
+import { CalendarIcon } from "@gaiaprotocol/svg-icons";
 import { introView } from "../../pages/introView.js";
 import AppConfig from "../AppConfig.js";
 import CoinDisplay from "../components/CoinDisplay.js";
-import CalendarIcon from "../icons/CalendarIcon.js";
 import Layout from "./Layout.js";
 
 export default class IntroView extends View {
@@ -24,7 +24,7 @@ export default class IntroView extends View {
         //title: "Add $GAIA to Wallet",
         title: "Launching in Q1 2025",
         onClick: () => {
-          new Alert({
+          new AlertDialog({
             icon: new CalendarIcon(),
             title: "$GAIA Launch Schedule",
             message:

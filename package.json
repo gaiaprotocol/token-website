@@ -7,9 +7,9 @@
   "dependencies": {
     "@babylonjs/core": "^7.33.0",
     "@common-module/app-components": "^0.1.6",
-    "@common-module/material-loading-spinner": "^0.1.6",
+    "@common-module/contract": "^0.1.6",
     "@common-module/wallet": "^0.1.6",
-    "@common-module/contract": "^0.1.6"
+    "@gaiaprotocol/ui-preset": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.7.5",
