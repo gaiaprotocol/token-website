@@ -7,11 +7,9 @@ import {
   Input,
 } from "@common-module/app-components";
 import { StringUtils } from "@common-module/ts";
-import {
-  WalletConnectionManager,
-  WalletConnectionPopup,
-} from "@common-module/wallet";
-import { formatEther, parseEther } from "ethers";
+import { WalletSessionManager } from "@common-module/wallet";
+import { baseSepolia } from "@wagmi/core/chains";
+import { formatEther, parseEther } from "viem";
 import { faucetView } from "../../pages/faucetView.js";
 import AppConfig from "../AppConfig.js";
 import GaiaProtocolTokenTestnetContract from "../contracts/GaiaProtocolTokenTestnetContract.js";
@@ -41,14 +39,14 @@ export default class FaucetView extends View {
           "Connect your wallet using the button below.",
           this.connectButton = new Button({
             type: ButtonType.Contained,
-            title: WalletConnectionManager.isConnected
+            title: WalletSessionManager.isConnected()
               ? "Disconnect Wallet"
               : "Connect Wallet",
-            onClick: () => {
-              if (WalletConnectionManager.isConnected) {
-                WalletConnectionManager.disconnect();
+            onClick: async () => {
+              if (WalletSessionManager.isConnected()) {
+                WalletSessionManager.disconnect();
               } else {
-                new WalletConnectionPopup();
+                await WalletSessionManager.connect();
               }
             },
           }),
@@ -68,12 +66,9 @@ export default class FaucetView extends View {
             type: ButtonType.Contained,
             title: "Request $GAIA",
             onClick: async () => {
-              const signer = await WalletConnectionManager.getSigner(
-                "base-sepolia",
-              );
               const amount = parseEther(this.amountInput.value);
 
-              await GaiaProtocolTokenTestnetContract.mint(signer, amount);
+              await GaiaProtocolTokenTestnetContract.mint(amount);
 
               new AlertDialog({
                 title: "Success",
@@ -100,8 +95,8 @@ export default class FaucetView extends View {
     this.loadBalance();
     this.checkRequestable();
 
-    WalletConnectionManager.on("connectionChanged", () => {
-      this.connectButton.title = WalletConnectionManager.isConnected
+    WalletSessionManager.on("sessionChanged", () => {
+      this.connectButton.title = WalletSessionManager.isConnected()
         ? "Disconnect Wallet"
         : "Connect Wallet";
 
@@ -111,18 +106,15 @@ export default class FaucetView extends View {
   }
 
   private async loadBalance() {
-    if (!WalletConnectionManager.connectedAddress) this.balanceDisplay.clear();
-    else {
+    const walletAddress = WalletSessionManager.getConnectedAddress();
+    if (!walletAddress) {
+      this.balanceDisplay.clear();
+    } else {
       this.balanceDisplay.clear().append(new AppCompConfig.LoadingSpinner());
 
       const [userBalance, ethBalance] = await Promise.all([
-        GaiaProtocolTokenTestnetContract.balanceOf(
-          WalletConnectionManager.connectedAddress,
-        ),
-        WalletConnectionManager.getBalance(
-          "base-sepolia",
-          WalletConnectionManager.connectedAddress,
-        ),
+        GaiaProtocolTokenTestnetContract.balanceOf(walletAddress),
+        WalletSessionManager.getBalance(baseSepolia.id, walletAddress),
       ]);
 
       this.balanceDisplay.clear().append(
@@ -145,7 +137,7 @@ export default class FaucetView extends View {
     } else {
       const amount = parseEther(amountString);
       if (
-        amount <= parseEther("10000") && WalletConnectionManager.isConnected
+        amount <= parseEther("10000") && WalletSessionManager.isConnected()
       ) {
         this.requestButton.enable().text = `Request ${
           StringUtils.formatNumberWithCommas(
