@@ -7,7 +7,7 @@
   "dependencies": {
     "@babylonjs/core": "^7.33.0",
     "@common-module/wallet": "^0.2.2",
-    "@gaiaprotocol/ui-preset": "^0.0.1"
+    "@gaiaprotocol/ui-preset": "^0.0.2"
   },
   "devDependencies": {
     "@types/node": "^22.7.5",
