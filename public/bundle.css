@@ -1028,6 +1028,6 @@ li.chat-message-list-item > main {
 .faucet-view > ul > li > button,
 .faucet-view > ul > li > .input {
   margin-top: 12px;
-  max-width: 320px;
+  max-width: 480px;
 }
 

@@ -17,6 +17,7 @@ import Layout from "./Layout.js";
 
 export default class FaucetView extends View {
   private balanceDisplay: DomNode;
+  private walletAddressDisplay: Input;
   private connectButton: Button;
   private amountInput: Input;
   private requestButton: Button;
@@ -37,6 +38,11 @@ export default class FaucetView extends View {
         el(
           "li",
           "Connect your wallet using the button below.",
+          this.walletAddressDisplay = new Input({
+            placeholder: "Wallet Address",
+            readOnly: true,
+            value: WalletSessionManager.getConnectedAddress(),
+          }),
           this.connectButton = new Button({
             type: ButtonType.Contained,
             title: WalletSessionManager.isConnected()
@@ -99,6 +105,9 @@ export default class FaucetView extends View {
       this.connectButton.title = WalletSessionManager.isConnected()
         ? "Disconnect Wallet"
         : "Connect Wallet";
+
+      this.walletAddressDisplay.value = WalletSessionManager
+        .getConnectedAddress() ?? "";
 
       this.loadBalance();
       this.checkRequestable();
