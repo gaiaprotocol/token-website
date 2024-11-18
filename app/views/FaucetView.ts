@@ -32,10 +32,6 @@ export default class FaucetView extends View {
         "p",
         "Welcome to the $GAIA Testnet Faucet! Get test $GAIA on Base Sepolia testnet.",
       ),
-      el(
-        "p",
-        String((window as any).ethereum),
-      ),
       this.balanceDisplay = el("p"),
       el(
         "ul",
