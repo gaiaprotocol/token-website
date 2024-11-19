@@ -13,7 +13,7 @@ export function introView<T>(): T {
       ),
       el(
         ".buttons",
-        el(
+        /*el(
           "a.button.contained",
           "Trade on Uniswap",
           html(
@@ -23,7 +23,7 @@ export function introView<T>(): T {
             href: "https://app.uniswap.org",
             target: "_blank",
           },
-        ),
+        ),*/
       ),
     ),
     el(".coin-display"),

@@ -679,7 +679,8 @@ dialog.modal.structured-modal > footer > button > .icon-container {
   width: 24px;
   height: 24px;
 }
-dialog.modal.alert-dialog > header > h1 {
+dialog.modal.alert-dialog > header > h1,
+dialog.modal.confirm-dialog > header > h1 {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -846,11 +847,16 @@ li.chat-message-list-item > main {
 .network-mismatch-modal {
   max-width: 760px !important;
 }
-.network-mismatch-modal .alert.warning {
+.network-mismatch-modal > header > h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.network-mismatch-modal > main > .alert.warning {
   margin-top: 22px;
 }
 @container (width <= 520px) {
-  .network-mismatch-modal .alert.warning {
+  .network-mismatch-modal > main > .alert.warning {
     font-size: 16px;
   }
 }
@@ -861,11 +867,16 @@ li.chat-message-list-item > main {
     gap: 12px;
   }
 }
-.confirm-dialog.sign-message .alert.info {
+.confirm-dialog.sign-message > header > h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.confirm-dialog.sign-message > main > .alert.info {
   margin-top: 22px;
 }
 @container (width <= 520px) {
-  .confirm-dialog.sign-message .alert.info {
+  .confirm-dialog.sign-message > main > .alert.info {
     font-size: 16px;
   }
 }
@@ -1053,17 +1064,17 @@ li.chat-message-list-item > main {
 @container (width <= 520px) {
   .faucet-view > h1 {
     font-size: 27px;
-    margin-bottom: 27px;
+    margin-bottom: 32px;
   }
 }
 .faucet-view > ul {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 32px;
+  margin-bottom: 32px;
   margin-left: 24px;
   list-style: decimal;
 }
 .faucet-view > ul > li {
-  margin-bottom: 12px;
+  margin-bottom: 32px;
 }
 .faucet-view > ul > li > button,
 .faucet-view > ul > li > .input {

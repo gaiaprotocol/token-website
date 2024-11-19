@@ -86,7 +86,7 @@ export default class FaucetView extends View {
                       StringUtils.formatNumberWithCommas(formatEther(amount), 3)
                     } $GAIA`,
                   ),
-                  "have been sent to your wallet on Base Sepolia.",
+                  " have been sent to your wallet on Base Sepolia.",
                 ],
               });
 
