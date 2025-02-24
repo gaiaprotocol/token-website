@@ -9,6 +9,7 @@ import IntroView from "./views/IntroView.js";
 import Layout from "./views/Layout.js";
 import TestView from "./views/TestView.js";
 import { baseSepolia } from "@wagmi/core/chains";
+import GaiaProtocolTokenTestnetContract from "./contracts/GaiaProtocolTokenTestnetContract.js";
 
 export default async function init(config: IAppConfig) {
   AppConfig.init(config);
