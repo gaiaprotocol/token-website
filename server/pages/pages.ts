@@ -1,11 +1,7 @@
-import { createPage, el } from "@common-module/ssr";
-import { el as UniversalEl, html } from "@common-module/universal-page";
+import { createPage } from "@common-module/ssr";
 import { faucetView } from "../../pages/faucetView.js";
 import { introView } from "../../pages/introView.js";
 import { layout } from "./layout.js";
-
-UniversalEl.impl = el;
-html.impl = (htmlContent) => htmlContent;
 
 const GTAG_ID = "G-SD4BMR4ZKT";
 const VERSION = "0.0.15";
@@ -13,46 +9,34 @@ const VERSION = "0.0.15";
 export function pages(
   path: string,
   isDevMode = false,
-): Response | undefined {
+): string | undefined {
   if (path === "/") {
-    return new Response(
-      createPage(
-        {
-          title: (isDevMode ? "(Dev) " : "") + "$GAIA",
-          jsFiles: [
-            `${isDevMode ? "/bundle-dev.js" : "/bundle.js"}?v=${VERSION}`,
-          ],
-          cssFiles: [
-            `${isDevMode ? "/bundle-dev.css" : "/bundle.css"}?v=${VERSION}`,
-          ],
-          gtagId: GTAG_ID,
-        },
-        layout(introView()),
-      ),
+    return createPage(
       {
-        status: 200,
-        headers: { "Content-Type": "text/html" },
+        title: (isDevMode ? "(Dev) " : "") + "$GAIA",
+        jsFiles: [
+          `${isDevMode ? "/bundle-dev.js" : "/bundle.js"}?v=${VERSION}`,
+        ],
+        cssFiles: [
+          `${isDevMode ? "/bundle-dev.css" : "/bundle.css"}?v=${VERSION}`,
+        ],
+        gtagId: GTAG_ID,
       },
+      layout(introView()),
     );
   } else if (path === "/faucet") {
-    return new Response(
-      createPage(
-        {
-          title: (isDevMode ? "(Dev) " : "") + "$GAIA Faucet",
-          jsFiles: [
-            `${isDevMode ? "/bundle-dev.js" : "/bundle.js"}?v=${VERSION}`,
-          ],
-          cssFiles: [
-            `${isDevMode ? "/bundle-dev.css" : "/bundle.css"}?v=${VERSION}`,
-          ],
-          gtagId: GTAG_ID,
-        },
-        layout(faucetView()),
-      ),
+    return createPage(
       {
-        status: 200,
-        headers: { "Content-Type": "text/html" },
+        title: (isDevMode ? "(Dev) " : "") + "$GAIA Faucet",
+        jsFiles: [
+          `${isDevMode ? "/bundle-dev.js" : "/bundle.js"}?v=${VERSION}`,
+        ],
+        cssFiles: [
+          `${isDevMode ? "/bundle-dev.css" : "/bundle.css"}?v=${VERSION}`,
+        ],
+        gtagId: GTAG_ID,
       },
+      layout(faucetView()),
     );
   }
 }
