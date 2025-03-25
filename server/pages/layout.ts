@@ -1,5 +1,5 @@
-import { el } from "https://raw.githubusercontent.com/yjgaia/deno-module/refs/heads/main/page.ts";
-import getGaiaProtocolLogo from "../components/getGaiaProtocolLogo.ts";
+import { el } from "@common-module/ssr";
+import getGaiaProtocolLogo from "./components/getGaiaProtocolLogo.js";
 
 export function header() {
   return el(
