@@ -22,13 +22,13 @@ export default class IntroView extends View {
       new Button({
         type: ButtonType.Outlined,
         //title: "Add $GAIA to Wallet",
-        title: "Launching in Q1 2025",
+        title: "Launching in Q2 2025",
         onClick: () => {
           new AlertDialog({
             icon: new CalendarIcon(),
             title: "$GAIA Launch Schedule",
             message:
-              "$GAIA will be launched in Q1 2025.\nStay tuned for more updates!",
+              "$GAIA will be launched in Q2 2025.\nStay tuned for more updates!",
           });
         },
       }),
